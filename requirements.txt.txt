@@ -1,4 +1,8 @@
 streamlit
 pandas 
 numpy
+<<<<<<< HEAD:requirements.txt.txt
 plotly_express
+=======
+plotly.express
+>>>>>>> 34e589c18694cc115fc836c4808a57b00aa7a677:requirements.text
