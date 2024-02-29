@@ -40,7 +40,7 @@ if show_condition_bar_button:
     fig = px.bar(x=condition_counts.values, y=condition_counts.index, orientation='h', 
                  title="Proporción de Condiciones de los Vehículos", 
                  labels={'x': 'Cantidad', 'y': 'Condición'})
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 # Gráfico de barras de tendencia temporal en la cantidad de días listado
 show_days_listed_bar_button = st.button("Tendencia Temporal en la Cantidad de Días Listado")
@@ -51,4 +51,4 @@ if show_days_listed_bar_button:
     fig = px.bar(days_listed_by_month, x='month_year', y='days_listed', 
                  title="Tendencia Temporal en la Cantidad de Días Listado", 
                  labels={'month_year': 'Mes y Año', 'days_listed': 'Días Listado Promedio'})
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
