@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-import matplotlib.pyplot as plt
+
 
 df = pd.read_csv('vehicles_us.csv')
 
@@ -37,10 +37,10 @@ if show_bar_chart_button:
 show_condition_bar_button = st.button("Proporción de Condiciones de los Vehículos")
 if show_condition_bar_button:
     condition_counts = df['condition'].value_counts()
-    fig = px.bar(y=condition_counts.index, x=condition_counts.values, orientation='h', 
+    fig = px.bar(x=condition_counts.values, y=condition_counts.index, orientation='h', 
                  title="Proporción de Condiciones de los Vehículos", 
-                 labels={'y': 'Condición', 'x': 'Cantidad'})
-    st.pyplot(fig)
+                 labels={'x': 'Cantidad', 'y': 'Condición'})
+    st.plotly_chart(fig)
 
 # Gráfico de barras de tendencia temporal en la cantidad de días listado
 show_days_listed_bar_button = st.button("Tendencia Temporal en la Cantidad de Días Listado")
@@ -51,4 +51,4 @@ if show_days_listed_bar_button:
     fig = px.bar(days_listed_by_month, x='month_year', y='days_listed', 
                  title="Tendencia Temporal en la Cantidad de Días Listado", 
                  labels={'month_year': 'Mes y Año', 'days_listed': 'Días Listado Promedio'})
-    st.pyplot(fig)
+    st.plotly_chart(fig)
