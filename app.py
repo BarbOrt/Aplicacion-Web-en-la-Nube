@@ -32,14 +32,22 @@ if show_bar_chart_button:
     fig = px.bar(df, x="model", y="price", title="Distribución de Precios según la Marca del Vehículo")
     st.plotly_chart(fig, use_container_width=True)
 
-# Gráfico de torta de proporción de condiciones
-show_pie_chart_button = st.button("Proporción de Condiciones de los Vehículos")
-if show_pie_chart_button:
-    fig = px.pie(df, names="condition", title="Proporción de Condiciones de los Vehículos")
-    st.plotly_chart(fig, use_container_width=True)
+# Gráfico de barras de proporción de condiciones
+show_condition_bar_button = st.button("Proporción de Condiciones de los Vehículos")
+if show_condition_bar_button:
+    condition_counts = df['condition'].value_counts()
+    fig = px.bar(y=condition_counts.index, x=condition_counts.values, orientation='h', 
+                 title="Proporción de Condiciones de los Vehículos", 
+                 labels={'y': 'Condición', 'x': 'Cantidad'})
+    st.pyplot(fig)
 
-# Gráfico de líneas de tendencia temporal en la cantidad de días listado
-show_line_chart_button = st.button("Tendencia Temporal en la Cantidad de Días Listado")
-if show_line_chart_button:
-    fig = px.line(df, x="date_posted", y="days_listed", title="Tendencia Temporal en la Cantidad de Días Listado")
-    st.plotly_chart(fig, use_container_width=True)
+# Gráfico de barras de tendencia temporal en la cantidad de días listado
+show_days_listed_bar_button = st.button("Tendencia Temporal en la Cantidad de Días Listado")
+if show_days_listed_bar_button:
+    df['date_posted'] = pd.to_datetime(df['date_posted'])  # Convertir a formato de fecha
+    df['month_year'] = df['date_posted'].dt.to_period('M')  # Agrupar por mes y año
+    days_listed_by_month = df.groupby('month_year')['days_listed'].mean().reset_index()
+    fig = px.bar(days_listed_by_month, x='month_year', y='days_listed', 
+                 title="Tendencia Temporal en la Cantidad de Días Listado", 
+                 labels={'month_year': 'Mes y Año', 'days_listed': 'Días Listado Promedio'})
+    st.pyplot(fig)
