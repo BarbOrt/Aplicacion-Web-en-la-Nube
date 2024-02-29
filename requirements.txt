@@ -2,3 +2,4 @@
  plotly_express
  streamlit
  numpy 
+ matplotlib_pyplot
