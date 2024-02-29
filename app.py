@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('vehicles_us.csv')
 
 # Encabezado con texto
-st.header("Análisis de Vehículos")
+st.header("Análisis de Anuncios de Venta de Vehículos")
 
 # Histograma de precios
 show_price_histogram_button = st.button("Histograma de Precios")
@@ -34,14 +34,14 @@ if show_bar_chart_button:
     fig = px.bar(df, x="model", y="price", title="Distribución de Precios según la Marca del Vehículo")
     st.plotly_chart(fig, use_container_width=True)
 
-# Gráfico de barras de proporción de condiciones
-show_bar_chart_button = st.button("Proporción de Condiciones de los Vehículos")
-if show_bar_chart_button:
-    fig = px.bar(df, names="condition", title="Proporción de Condiciones de los Vehículos")
-    st.pyplot(fig)
+# Gráfico de torta de proporción de condiciones
+show_pie_chart_button = st.button("Proporción de Condiciones de los Vehículos")
+if show_pie_chart_button:
+    fig = px.pie(df, names="condition", title="Proporción de Condiciones de los Vehículos")
+    st.plotly_chart(fig, use_container_width=True)
 
-# Gráfico de barrass de tendencia temporal en la cantidad de días listado
-show_bar_chart_button = st.button("Tendencia Temporal en la Cantidad de Días Listado")
-if show_bar_chart_button:
-    fig = px.bar(df, x="date_posted", y="days_listed", title="Tendencia Temporal en la Cantidad de Días Listado")
-    st.pyplot(fig)
+# Gráfico de líneas de tendencia temporal en la cantidad de días listado
+show_line_chart_button = st.button("Tendencia Temporal en la Cantidad de Días Listado")
+if show_line_chart_button:
+    fig = px.line(df, x="date_posted", y="days_listed", title="Tendencia Temporal en la Cantidad de Días Listado")
+    st.plotly_chart(fig, use_container_width=True)
