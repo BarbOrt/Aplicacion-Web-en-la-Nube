@@ -39,10 +39,9 @@ if show_pie_chart_button:
     fig = px.pie(df, names="condition", title="Proporción de Condiciones de los Vehículos")
     st.plotly_chart(fig, use_container_width=True)
 
-# Gráfico de dispersión con línea de tendencia temporal en la cantidad de días listado
-show_scatter_chart_button = st.button("Tendencia Temporal en la Cantidad de Días Listado (Scatter Plot)")
-if show_scatter_chart_button:
-    fig = px.scatter(df, x="date_posted", y="days_listed", title="Tendencia Temporal en la Cantidad de Días Listado")
-    fig.update_traces(mode='lines+markers')
-    fig.update_layout(showlegend=False)  # Opcional: para ocultar la leyenda si no es necesaria
+# Gráfico de barras de la tendencia temporal en la cantidad de días listados
+show_bar_chart_button = st.button("Tendencia Temporal en la Cantidad de Días Listado (Gráfico de Barras)")
+if show_bar_chart_button:
+    fig = px.bar(df, x="date_posted", y="days_listed", title="Tendencia Temporal en la Cantidad de Días Listado",
+                 labels={"date_posted": "Fecha", "days_listed": "Días Listados"})
     st.plotly_chart(fig, use_container_width=True)
