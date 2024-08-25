@@ -31,4 +31,4 @@ El objetivo de este proyecto es desarrollar y desplegar una aplicación web para
 
 ## Enlace a la Aplicación Desplegada
 
-Puedes visualizar la aplicación web desplegada en el siguiente enlace: [Aplicación en Render](https://proyecto-sprint-5-4b22.onrender.com/)
+Puedes visualizar la aplicación web desplegada en el siguiente enlace: [[Aplicación en Render](https://proyecto-sprint-5-4b22.onrender.com/)]
