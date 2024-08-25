@@ -31,6 +31,6 @@ El objetivo de este proyecto es desarrollar y desplegar una aplicación web para
 
 ## Enlace a la Aplicación Desplegada
 
-Puedes visualizar la aplicación web desplegada en el siguiente enlace:
+Haz clic en el siguiente icono para visualizar la aplicación web desplegada:
 
 [![Ver Aplicación](https://img.shields.io/badge/Ver%20Aplicación%20-Web%20App-blue)](https://proyecto-sprint-5-4b22.onrender.com/)
